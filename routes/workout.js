@@ -1,32 +1,20 @@
 const express = require('express');
+const Workout = require('../models/schema')
+const { createWorkout, getWorkouts, getSingleWorkout, deleteWorkout, updateWorkout } = require('../controllers/workoutController')
 
 // initialize the router instance
 const router = express.Router()
 
 // routes
-router.get('/', (req, res) => {
-    res.end('hey');
-})
+router.get('/', getWorkouts)
 
-router.get('/workouts', (req, res) => {
-    
-})
+router.post('/', createWorkout)
 
-router.post('/workouts', (req, res) => {
-    
-})
+router.get('/workouts/:id', getSingleWorkout)
 
-router.get('/workouts/:id', (req, res) => {
-    
-})
+router.patch('/workouts/:id', updateWorkout)
 
-router.post('/workouts/:id', (req, res) => {
-    
-})
-
-router.delete('/workouts/:id', (req, res) => {
-    
-})
+router.delete('/workouts/:id', deleteWorkout)
 
 // export the router instance
 module.exports = router;
